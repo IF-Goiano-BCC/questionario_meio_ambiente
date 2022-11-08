@@ -48,7 +48,7 @@ class _QuizState extends State<Quiz>{
                 children: [
                   ElevatedButton(
                   style: style,
-                  onPressed: _Saveform,
+                  onPressed: isLoading? null:_Saveform,
                   child: isLoading ? const CircularProgressIndicator(
                     color: Colors.white,
                     strokeWidth: 3,
