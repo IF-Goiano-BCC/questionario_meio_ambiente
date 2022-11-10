@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // identificacao pessoal
 // infra da cidade
 
+
 class Question extends StatefulWidget {
   final Function onUpdate;
   final String id;
@@ -26,7 +27,7 @@ class Question extends StatefulWidget {
 
 
 class QuestionState extends State<Question> {
-  late Map<int, bool> values = { for (var v in [for (var i = 1; i <= widget.options.length; i++) i]) v:  false };
+  late Map<int, bool> values = { for (var v in [for (var i = 0; i < widget.options.length; i++) i]) v:  false };
   
   @override
   Widget build(BuildContext context) {
@@ -35,13 +36,17 @@ class QuestionState extends State<Question> {
         Text(widget.name),
         Text(widget.description),
         ListView.builder(
-        itemCount:  widget.options.length,
+          // physics: NeverScrollableScrollPhysics(),
+        // scrollDirection: Axis.vertical,
+        shrinkWrap: true,
+        itemCount:  values.keys.length-1,
         itemBuilder: (context, index) {
           return Row(
             children: [
               Checkbox(
-                value: values[index], 
-              onChanged: (bool? value) => handleChange(index, value!)),
+                tristate: true,
+                value: values[index]?? false, 
+              onChanged: (bool? value) => handleChange(index, value??false)),
               Text(widget.options[index])
             ],
           );
@@ -52,12 +57,10 @@ class QuestionState extends State<Question> {
           color: Color.fromARGB(255, 85, 85, 85),
         )
       ],
-
     );
   }
 
   handleChange(int key , bool val){
-    
     if(! widget.isMulti){
       for (var k in values.keys) { 
         setState(() {
@@ -65,11 +68,11 @@ class QuestionState extends State<Question> {
         });
       }
     }
-
     setState(() {
       values[key] = val;
     });
-    var indices = values.keys.where((element) => values[key]! );
+    var indices = values.keys.where((e) => values[e] == true );
+    print(indices);
     var newVal = indices.map((i) =>  widget.options[i]).toList();
     widget.onUpdate( widget.id,newVal);
   }
