@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 import 'package:geolocator/geolocator.dart';
 
-
+import 'formSteps/steps.dart';
 import "../data/managet.dart";
 
 
@@ -43,6 +43,7 @@ class _QuizState extends State<Quiz>{
           child: Column(
             children: [
               Text(widget.name),
+              MapaUbanistico(pre: "a_", callback:_att_values),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center, //Center Row contents horizontally,
                 children: [
@@ -63,6 +64,7 @@ class _QuizState extends State<Quiz>{
       ),
     );
   }
+  // ignore: non_constant_identifier_names
   _Saveform()async{
       setState((){
         isLoading = true;
@@ -81,6 +83,10 @@ class _QuizState extends State<Quiz>{
         data.clear();
         isLoading = false;
       });
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const NewQuiz()));
+      
   }
 
 }
@@ -120,4 +126,41 @@ Future<Position> _determinePosition() async {
   // When we reach here, permissions are granted and we can
   // continue accessing the position of the device.
   return await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+}
+
+
+class NewQuiz extends StatelessWidget {
+  const NewQuiz({Key? key}) : super(key: key);
+  static ButtonStyle style =
+        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar:AppBar(
+          title: const Text("socio"),
+        ) ,
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center, //Center Row contents horizontally,
+                children: [
+                  ElevatedButton(
+                  style: style,
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Quiz(name: "Socio economico")));
+                  },
+                  child: const Text('Novo Questionario'),
+                ),
+                ],
+              )
+              ],
+          ),
+        )
+      ),
+    );
+  }
 }
