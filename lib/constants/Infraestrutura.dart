@@ -2,7 +2,7 @@ const List<Map<String, dynamic>> questions = [{
   "id":"Rend_Ind",
   "name":"Renda Mensal Individual:",
   "isMulti": false,
-  "options":["Não tem", "Auxílio/Seguro/Benefício governo", "Menos de 1 salário mínimo (até R$ 1.212,00)", "De 1 até 3 (R$ 1.212,01 até 2.424,00)", "De 3 até 5 (R$2.424,00 até 6.060,00)", "De 5 ( R$ 6.060,01 em diante)"],
+  "options":["Não tem", "Auxílio/Seguro/Benefício governo", "Menos de 1 salário mínimo (até R\$ 1.212,00)", "De 1 até 3 (R\$ 1.212,01 até 2.424,00)", "De 3 até 5 (R\$2.424,00 até 6.060,00)", "De 5 ( R\$ 6.060,01 em diante)"],
 },
 {
   "id":"Not_Cid",
