@@ -35,9 +35,12 @@ class _MapaUbanisticoState extends State<MapaUbanistico> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const Text("MAPA URBANÍSTICO"),
         ListView.builder(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
           itemCount:  questions.length,
           itemBuilder: (context, index){
           return Question(
@@ -47,7 +50,6 @@ class _MapaUbanisticoState extends State<MapaUbanistico> {
           onUpdate: widget.callback);
         })
       ],
-
     );
   }
 
