@@ -5,8 +5,7 @@ import 'package:geolocator/geolocator.dart';
 
 import 'package:questionario/screens/quiz.dart';
 void main() {
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const Application());
 }
 
@@ -16,7 +15,8 @@ class Application extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Quiz(name: "Socio economico")
+      home: NewQuiz(),
+
     );
   }
 }
