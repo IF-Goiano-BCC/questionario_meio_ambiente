@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 
 import 'package:geolocator/geolocator.dart';
 
-import 'formSteps/steps.dart';
+import 'formSteps/Ident.dart';
+import 'formSteps/Infra.dart';
+import 'formSteps/Mapa.dart';
 import "../data/managet.dart";
 
 
@@ -43,7 +45,9 @@ class _QuizState extends State<Quiz>{
           child: Column(
             children: [
               Text(widget.name),
-              MapaUbanistico(pre: "a_", callback:_att_values),
+              MapaUrb(pre: "map_", callback:_att_values),
+              Identificacao(pre: "ident_", callback:_att_values),
+              Infra(pre: "inf_", callback:_att_values),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center, //Center Row contents horizontally,
                 children: [
