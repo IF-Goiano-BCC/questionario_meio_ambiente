@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:questionario/constants/styles.dart';
 // mapa ubanistico
 // identificacao pessoal
 // infra da cidade
@@ -33,11 +33,13 @@ class QuestionState extends State<Question> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(widget.name),
+        Padding( padding: const EdgeInsets.all(12),child: Text(widget.name, 
+        style: titleStyle,)),
         Text(widget.description),
         ListView.builder(
-          // physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         // scrollDirection: Axis.vertical,
+        primary: false,
         shrinkWrap: true,
         itemCount:  values.keys.length-1,
         itemBuilder: (context, index) {
@@ -47,7 +49,7 @@ class QuestionState extends State<Question> {
                 tristate: true,
                 value: values[index]?? false, 
               onChanged: (bool? value) => handleChange(index, value??false)),
-              Text(widget.options[index])
+              Expanded(child: Text(widget.options[index]))
             ],
           );
         }
