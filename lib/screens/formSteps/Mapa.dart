@@ -24,7 +24,43 @@ class _MapaUrbState extends State<MapaUrb> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("MAPA URBANÍSTICO", style: sectionTitleStyle),
+        const Padding(
+          padding:  EdgeInsets.symmetric(horizontal: 4, vertical: 32),
+          child: Text("MAPA URBANÍSTICO", style: sectionTitleStyle),
+        ),
+
+        Padding(
+          padding:  const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+          child: TextField(
+            onChanged: (value) => _save("via", value),
+            decoration: const InputDecoration(
+              border: UnderlineInputBorder(),
+              labelText: 'Nome da Via',
+            ),
+            ) 
+          ),
+
+        Padding(
+          padding:  const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+          child: TextField(
+            onChanged: (value) => _save("bairro", value),
+            decoration: const InputDecoration(
+              border: UnderlineInputBorder(),
+              labelText: 'Bairro',
+            ),
+            ) 
+          ),
+
+          Padding(
+          padding:  const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+          child: TextField(
+            onChanged: (value) => _save("quadra", value),
+            decoration: const InputDecoration(
+              border: UnderlineInputBorder(),
+              labelText: 'Quadra',
+            ),
+            ) 
+          ),
         ListView.builder(
           physics: const NeverScrollableScrollPhysics(),
           primary: false,
