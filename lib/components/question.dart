@@ -33,8 +33,11 @@ class QuestionState extends State<Question> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding( padding: const EdgeInsets.all(12),child: Text(widget.name, 
-        style: titleStyle,)),
+        Padding( 
+          padding:  const EdgeInsets.symmetric(horizontal: 4, vertical: 16),
+          child: Text(widget.name, 
+          style: titleStyle,)
+        ),
         Text(widget.description),
         ListView.builder(
         physics: const NeverScrollableScrollPhysics(),
