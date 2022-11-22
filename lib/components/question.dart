@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:questionario/constants/styles.dart';
+import 'package:MapUrb/constants/styles.dart';
 // mapa ubanistico
 // identificacao pessoal
 // infra da cidade
@@ -27,8 +27,8 @@ class Question extends StatefulWidget {
 
 
 class QuestionState extends State<Question> {
-  late Map<int, bool> values = { for (var v in [for (var i = 0; i < widget.options.length; i++) i]) v:  false };
-  
+  late  Map<int, bool> values = { for (var v in [for (var i = 0; i < widget.options.length; i++) i]) v:  false };
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -44,15 +44,16 @@ class QuestionState extends State<Question> {
         // scrollDirection: Axis.vertical,
         primary: false,
         shrinkWrap: true,
-        itemCount:  values.keys.length-1,
+        itemCount:  values.keys.length,
         itemBuilder: (context, index) {
           return Row(
             children: [
-              Checkbox(
-                tristate: true,
+              Expanded(
+                child: CheckboxListTile(
+                title:Text(widget.options[index]),
                 value: values[index]?? false, 
-              onChanged: (bool? value) => handleChange(index, value??false)),
-              Expanded(child: Text(widget.options[index]))
+              onChanged: (bool? value) => handleChange(index, value!))
+              )
             ],
           );
         }
@@ -66,7 +67,9 @@ class QuestionState extends State<Question> {
   }
 
   handleChange(int key , bool val){
-    if(! widget.isMulti){
+    if(!widget.isMulti){
+      print("aqui");
+      print(widget.isMulti);
       for (var k in values.keys) { 
         setState(() {
           values[k] = false;
