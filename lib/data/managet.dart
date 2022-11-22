@@ -1,15 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:ffi';
 import 'dart:io';
 import 'package:permission_handler/permission_handler.dart';
-
-import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 
- Future<bool> _requestPermission(Permission permission) async {
+Future<bool> _requestPermission(Permission permission) async {
     if (await permission.isGranted) {
       return true;
     } else {
@@ -18,16 +14,14 @@ import 'package:permission_handler/permission_handler.dart';
         return true;
       }
     }
-    return false;
+    return false; 
   }
-
 
 const jsonPaht = 'data.json';
 Future<String> get _localPath async {
   if (await _requestPermission(Permission.storage) && await  _requestPermission(Permission.manageExternalStorage)) {
     var directory = await getExternalStorageDirectory();
     String newPath = "";
-    print(directory);
     List<String> paths = directory!.path.split("/");
     for (int x = 1; x < paths.length; x++) {
       String folder = paths[x];
@@ -37,7 +31,7 @@ Future<String> get _localPath async {
         break;
       }
     }
-    newPath = "$newPath/RPSApp";
+    newPath = "$newPath/MapUrb";
     directory = Directory(newPath);
     return directory.path;
   }
@@ -47,6 +41,11 @@ Future<String> get _localPath async {
 Future<File> get _localFile async {
   final path = await _localPath;
   return File('$path/$jsonPaht');
+}
+
+Future<String> get _localFilePath async {
+  final path = await _localPath;
+  return '$path/$jsonPaht';
 }
 
 updateLocaldata(Map<String, dynamic> newRegistry) async{
@@ -67,4 +66,3 @@ updateLocaldata(Map<String, dynamic> newRegistry) async{
 
 exportJson(){
 }
-
