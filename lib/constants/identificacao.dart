@@ -37,8 +37,8 @@ const List<Map<String, dynamic>> questions = [{
 {
   "id":"Def_Perm",
   "name":"Possui alguma deficiência permanente? Qual?",
-  "isMulti": false,
-  "options":["Não", "Sim", "Visão", "Audição", "Fala", "Mobilidade", "Cognitiva", "Outras"],
+  "isMulti": true,
+  "options":["Não", "Visão", "Audição", "Fala", "Mobilidade", "Cognitiva", "Outras"],
 },
 {
   "id":"Res",
@@ -61,13 +61,19 @@ const List<Map<String, dynamic>> questions = [{
 {
   "id":"Atv_trab",
   "name":"Atividade em que trabalha?",
-  "isMulti": false,
+  "isMulti": true,
   "options":["Agricultura/Pecuária", "Aposentado", "Comércio/Prestação de serviços/Construção Civil", "Desempregado", "Estudante", "Funcionário Público", "Indústria/Usina", "Informal/Bico"],
 },
 {
   "id":"Cid_Trab",
   "name":"Cidade de Trabalho?",
-  "isMulti": false,
+  "isMulti": true,
   "options":["Santo Antônio da Barra", "Goiânia", "Santa Cruz das Lajes", "Rio Verde", "Santa Helena de Goiás", "Acreúna", "Desempregado", "Outra"],
+},
+{
+  "id":"Rend_Ind",
+  "name":"Renda Mensal Individual:",
+  "isMulti": false,
+  "options":["Não tem", "Auxílio/Seguro/Benefício governo", "Menos de 1 salário mínimo (até R\$ 1.212,00)", "De 1 até 3 (R\$ 1.212,01 até 2.424,00)", "De 3 até 5 (R\$2.424,00 até 6.060,00)", "De 5 ( R\$ 6.060,01 em diante)"],
 }
 ];

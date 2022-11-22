@@ -1,10 +1,4 @@
 const List<Map<String, dynamic>> questions = [{
-  "id":"Rend_Ind",
-  "name":"Renda Mensal Individual:",
-  "isMulti": false,
-  "options":["Não tem", "Auxílio/Seguro/Benefício governo", "Menos de 1 salário mínimo (até R\$ 1.212,00)", "De 1 até 3 (R\$ 1.212,01 até 2.424,00)", "De 3 até 5 (R\$2.424,00 até 6.060,00)", "De 5 ( R\$ 6.060,01 em diante)"],
-},
-{
   "id":"Not_Cid",
   "name":"Como você fica sabendo das nóticias sobre a cidade?",
   "isMulti": true,
@@ -43,7 +37,7 @@ const List<Map<String, dynamic>> questions = [{
 {
   "id":"Dei_Res",
   "name":"Onde prefere deixar o resíduo doméstico para reciclagem?",
-  "isMulti": false,
+  "isMulti": true,
   "options":["Não pretende separar o resíduo.", "Na calçada/lixeira para coleta da Coop Recicla ou outra empresa.", "No PEV (Ponto de Entrega Voluntária) instalado próximo da residência.", "Entrega direto na Coop Recicla (Cooperativa de Reciclagem do Sudoeste Goiano).", "Armazenar em casa para venda, doação ou destino posterior."],
 },
 {
@@ -61,13 +55,13 @@ const List<Map<String, dynamic>> questions = [{
 {
   "id":"Ben_Arb",
   "name":"Quais os benefícios da arborização das ruas?",
-  "isMulti": false,
+  "isMulti": true,
   "options":["Ar puro/fresco", "Embeleza a cidade", "Preservação", "Qualidade de vida", "Sombra", "Valoriza o imóvel", "Sem benefícios", "Outro"],
 },
 {
   "id":"Ori_Agu",
   "name":"Qual a origem da água para consumo humano na sua casa?",
-  "isMulti": false,
+  "isMulti": true,
   "options":["Água mineral", "Chuva/Armazenagem", "Cisterna", "Filtro", "Poço Artesiano", "Rio/Bica/Nascente", "Torneira/Rede pública", "Outra"],
 },
 {
@@ -79,7 +73,7 @@ const List<Map<String, dynamic>> questions = [{
 {
   "id":"Mei_Tran",
   "name":"Qual meio de transporte que você mais utiliza?",
-  "isMulti": false,
+  "isMulti": true,
   "options":["A pé", "Animal", "Bicicleta", "Camionete", "Carro", "Carona/Uber/Táxi", "Motocicleta", "Ônibus municipal", "Transporte empresa"],
 },
 {
