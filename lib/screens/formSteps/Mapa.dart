@@ -1,10 +1,10 @@
+
 import 'package:flutter/material.dart';
+
+import 'package:MapUrb/constants/MapaUrbanistico.dart';
+import 'package:MapUrb/constants/styles.dart';
+
 import '../../components/question.dart';
-
-import 'package:questionario/constants/MapaUrbanistico.dart';
-import 'package:questionario/constants/styles.dart';
-
-
 
 class MapaUrb extends StatefulWidget {
   final Function callback;
@@ -35,7 +35,7 @@ class _MapaUrbState extends State<MapaUrb> {
             onChanged: (value) => _save("via", value),
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
-              labelText: 'Nome da Via',
+              labelText: 'Nome da via',
             ),
             ) 
           ),
@@ -71,6 +71,7 @@ class _MapaUrbState extends State<MapaUrb> {
           id: questions[index]["id"], 
           name: questions[index]["name"],
           options: questions[index]["options"],
+          isMulti: questions[index]["isMulti"],
           onUpdate: _save);
         })
       ],

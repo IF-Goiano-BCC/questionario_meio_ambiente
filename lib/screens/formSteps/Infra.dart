@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../components/question.dart';
 
-import 'package:questionario/constants/Infraestrutura.dart';
-import 'package:questionario/constants/styles.dart';
+import 'package:MapUrb/constants/Infraestrutura.dart';
+import 'package:MapUrb/constants/styles.dart';
 
 
 
@@ -24,7 +24,7 @@ class _InfraState extends State<Infra> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Infra estrutura", style: sectionTitleStyle),
+        const Text("Infraestrutura", style: sectionTitleStyle),
         ListView.builder(
           physics: const NeverScrollableScrollPhysics(),
           primary: false,
@@ -35,6 +35,7 @@ class _InfraState extends State<Infra> {
           id: questions[index]["id"], 
           name: questions[index]["name"],
           options: questions[index]["options"],
+          isMulti: questions[index]["isMulti"],
           onUpdate: _save);
         })
       ],

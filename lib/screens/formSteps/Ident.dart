@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../components/question.dart';
 
-import 'package:questionario/constants/identificacao.dart';
-import 'package:questionario/constants/styles.dart';
+import 'package:MapUrb/constants/identificacao.dart';
+import 'package:MapUrb/constants/styles.dart';
 
 
 
@@ -36,6 +36,7 @@ class _IdentificacaoState extends State<Identificacao> {
           id: questions[index]["id"], 
           name: questions[index]["name"],
           options: questions[index]["options"],
+          isMulti: questions[index]["isMulti"],
           onUpdate: _save);
         })
       ],
