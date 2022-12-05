@@ -3,10 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
 
 
-import 'package:questionario/screens/quiz.dart';
+import 'package:MapUrb/screens/quiz.dart';
 void main() {
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const Application());
 }
 
@@ -15,8 +14,13 @@ class Application extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Quiz(name: "Socio economico")
+    return MaterialApp(
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+        color: Color.fromARGB(255, 0, 186, 31),
+      )),
+      home: NewQuiz(),
+
     );
   }
 }
